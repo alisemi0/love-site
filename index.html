@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonsuzluk & Biz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Kalam:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+   
+    
+    
+</head>
+<body>
+
+    <div id="auth-screen">
+        <div class="auth-box dark-glass">
+            <i class="fa-solid fa-lock glow-text" style="font-size: 3.5rem; margin-bottom: 20px;"></i>
+            <h2 class="romantic-font glow-text" style="font-size: 2.5rem; margin-bottom: 10px;">Gizli Bölge</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; line-height: 1.6;">Bu alana erişim kısıtlanmıştır.<br>Lütfen şifreyi giriniz.</p>
+            
+            <input type="password" id="auth-password" placeholder="Şifre" autocomplete="off">
+            <button id="auth-btn">Giriş Yap</button>
+            <button id="go-admin-btn"><i class="fa-solid fa-user-shield"></i> Yönetici Paneli</button>
+            <p id="auth-error">Hatalı şifre, lütfen tekrar deneyin.</p>
+        </div>
+    </div>
+
+    <div id="loader" class="dark-glass" style="display: none;">
+        <i class="fa-solid fa-heart beating-heart"></i>
+        <p class="loader-text romantic-font">Aşk Yükleniyor...</p>
+    </div>
+
+    <div id="particles-container"></div>
+
+    <header class="global-header fade-in">
+        <h1 class="hero-title glow-text">Seninle Her Saniye</h1>
+        <p class="hero-subtitle">Karanlığımı aydınlatan en güzel yıldızsın.</p>
+    </header>
+
+    <main id="pages-container">
+        
+        <section id="home" class="page active">
+            <div class="timer-wrapper dark-glass fade-in">
+                <div class="timer-container">
+                    <div class="time-box"><span id="days">00</span><span class="label">Gün</span></div>
+                    <div class="time-box"><span id="hours">00</span><span class="label">Saat</span></div>
+                    <div class="time-box"><span id="minutes">00</span><span class="label">Dakika</span></div>
+                    <div class="time-box"><span id="seconds">00</span><span class="label">Saniye</span></div>
+                </div>
+            </div>
+
+            <!-- YENİ: VİTRİN / ÖZEL ALAN (Varsayılan olarak gizlidir) -->
+            <div id="dynamic-highlight" class="highlight-wrapper dark-glass slide-up" style="display: none;">
+                <!-- İçerik JavaScript ile Firebase'den doldurulacak -->
+            </div>
+        </section>
+
+        <section id="story" class="page">
+            <div class="timeline" id="timeline-container">
+            </div>
+        </section>
+
+        <section id="gallery" class="page">
+            <div class="gallery-filters slide-up" id="dynamic-filters">
+                <button class="filter-btn active" data-filter="all">Tümü</button>
+            </div>
+            <div class="smart-grid" id="grid-container">
+            </div>
+        </section>
+
+        <section id="message" class="page">
+            <div class="envelope-wrapper slide-up" id="envelope">
+                <div class="envelope-front dark-glass">
+                    <i class="fa-solid fa-heart-circle-check heart-icon glow-text"></i>
+                    <p>Zarfı Açmak İçin Dokun</p>
+                </div>
+                <div class="letter-content dark-glass" id="letter">
+                    <h3 class="romantic-font glow-text">Sevgilim,</h3>
+                    <p id="dynamic-secret-note" style="white-space: pre-wrap;"></p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <nav class="bottom-nav dark-glass">
+        <div class="nav-indicator"></div>
+        <div class="nav-item active" data-target="home">
+            <i class="fa-solid fa-clock icon"></i>
+            <span class="text">Sayaç</span>
+        </div>
+        <div class="nav-item" data-target="story">
+            <i class="fa-solid fa-book-open icon"></i>
+            <span class="text">Hikaye</span>
+        </div>
+        <div class="nav-item" data-target="gallery">
+            <i class="fa-solid fa-images icon"></i>
+            <span class="text">Anılar</span>
+        </div>
+        <div class="nav-item" data-target="message">
+            <i class="fa-solid fa-envelope-open-text icon"></i>
+            <span class="text">Mesaj</span>
+        </div>
+    </nav>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox"><i class="fa-solid fa-xmark"></i></span>
+        <button class="lightbox-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <img class="lightbox-content" id="lightbox-img">
+        <button class="lightbox-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+    
+
+</body>
+</html>
